@@ -40,7 +40,7 @@ const Email = () => {
             <div>
                 <h5 className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300 font-bold text-4xl">Get in touch !</h5>
                 <p className='text-[#ADB7BE] mb-4 max-w-'>
-                I'm always open to new opportunities, especially in IT consulting. If you're looking for a passionate intern, let's connect. I'm excited to see what we can achieve together! Available for internships starting from February 21th, 2025
+                I&apos;m always open to new opportunities, especially in IT consulting. If you're looking for a passionate intern, let's connect. I'm excited to see what we can achieve together! Available for internships starting from February 21th, 2025
                 </p>
                 <div className='socials flex flex-row gap-2'>
                     <Link href="/">
