@@ -30,9 +30,9 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <nav className="fixed top-0 left-0 right-0 z-10 bg-[#4a4e69] opacity-90">
-            <div className="flex flex-wrap items-center justify-between mx-auto p-6">
+            <div className="flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link href={"/"}>
-                    <Image src="/images/logo.png" alt="logo" width={50} height={50}></Image>
+                    <Image src="/images/logo.png" alt="logo" width={30} height={30}></Image>
                 </Link>
             
                 <div className="mobile-menu md:hidden block">
