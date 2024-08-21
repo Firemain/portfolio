@@ -43,11 +43,11 @@ const Email = () => {
                 I&apos;m always open to new opportunities, especially in IT consulting. If you&apos;re looking for a passionate intern, let&apos;s connect. I&apos;m excited to see what we can achieve together! Available for internships starting from February 21th, 2025.
                 </p>
                 <div className='socials flex flex-row gap-2'>
-                    <Link href="/">
+                    <Link href="https://github.com/Firemain" target='_blank'>
                     <Image src="/images/github-icon.svg" alt="GitHub" width={50} height={50} className='cursor-pointer'></Image>
                     </Link>
 
-                    <Link href="/">
+                    <Link href="https://www.linkedin.com/in/firmin-thiery" target='_blank'>
                     <Image src="/images/linkedin-icon.svg" width={50} height={50} className='cursor-pointer' alt="linkedin"></Image>
                     </Link>
                 </div>

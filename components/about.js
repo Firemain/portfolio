@@ -116,7 +116,7 @@ const About = () => {
     }
 
     return (
-        <section className='text-white mt-24' id="about">
+        <section className='text-white mt-24 id="about'>
             <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-6">
                 <Image src="/images/aboutme.png" alt="About" width={500} height={500} className="rounded-lg" />
                 <div className='mt-6 md:mt-0'>
@@ -124,13 +124,19 @@ const About = () => {
                     <p className='text-base md:text-lg'>
                         I am a 4th-year engineering student at <Link href="https://centralelille.fr/"><span className="text-[#9882ac]">Ecole Centrale de Lille</span></Link>, and I am specializing in IT development and management. My experience includes software development, AI, and web technologies, with a strong focus on applying innovative solutions to real-world challenges. Passionate about technology, I aim to transition into <span className="text-[#9882ac]">IT consulting</span> after graduation.
                     </p>
-                    <div className='flex flex-row mt-8'>
+                    
+                    {/* Message humoristique visible uniquement sur mobile */}
+                    <p className='text-left text-[#adb7be] mt-4 md:hidden'>
+                        Make your order : 
+                    </p>
+    
+                    <div className='flex flex-row flex-wrap md:mt-8'>
                         <TabButton selectTab={() => handleTabs("Education")} active={tabs === "Education"}>Education</TabButton>
                         <TabButton selectTab={() => handleTabs("Experience")} active={tabs === "Experience"}>Experience</TabButton>
                         <TabButton selectTab={() => handleTabs("Certifications")} active={tabs === "Certifications"}>Certifications</TabButton>
                         <TabButton selectTab={() => handleTabs("Skills")} active={tabs === "Skills"}>Skills</TabButton>
-
                     </div>
+    
                     <div className='mt-8'>
                         {TAB_DATA.find((t) => t.id === tabs).contents}
                     </div>
@@ -138,6 +144,7 @@ const About = () => {
             </div>
         </section>
     );
+    
 };
 
 export default About;

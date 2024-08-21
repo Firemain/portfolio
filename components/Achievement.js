@@ -26,19 +26,20 @@ const ACHIEVEMENTS_DATA = [
 
 const Achievement = () => {
     return (
-        <div className='py-8 px-4 xl:gap-16 sm:py-16 xl:px-16'>
-            <div className='border-[#fe2e9e4] border rounded-md py-8 px-16 flex flex-row items-center justify-between'>
-            {ACHIEVEMENTS_DATA.map((achievement, index) => {
-                return (
-                    <div key={index} className='flex flex-col items-center justify-center'>
-                        <h1 className='text-4xl text-white font-bold'>{achievement.value}</h1>
-                        <p className='text-xl text-slate-500'>{achievement.metric}</p>
-                    </div>
-                )
-            })}
+        <div className='py-8 px-4 sm:py-16 xl:px-16'>
+            <div className='border-[#fe2e9e4] border rounded-md py-8 px-6 sm:px-16 flex flex-col sm:flex-row items-center justify-around'>
+                {ACHIEVEMENTS_DATA.map((achievement, index) => {
+                    return (
+                        <div key={index} className='flex flex-col items-center justify-center mb-6 sm:mb-0'>
+                            <h1 className='text-4xl text-white font-bold'>{achievement.value}</h1>
+                            <p className='text-xl text-slate-500'>{achievement.metric}</p>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
+    
 };
 
 export default Achievement;
