@@ -36,7 +36,7 @@ const Email = () => {
     }
 
     return (
-        <section className='grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4'>
+        <section className='grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4' id="contact">
             <div>
                 <h5 className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300 font-bold text-4xl">Get in touch !</h5>
                 <p className='text-[#ADB7BE] mb-4 max-w-'>

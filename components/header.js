@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Header() {
     return (
-        <section className="max-w-full px-8 mt-4">
+        <section id="home" className="max-w-full px-8 mt-4">
             <div className="grid grid-cols-1 sm:grid-cols-12">
                 <div className="col-span-1 sm:col-span-7 place-self-center text-center sm:text-left sm:ml-6">
                     <h1 className="text-[#f2e9e4] mb-4 text-4xl lg:text-6xl font-extrabold">
@@ -28,7 +28,7 @@ export default function Header() {
       repeat={Infinity}
     />
                         </h1>
-                    <p className="text-[#f2e9e4] text-lg lg:text-xl mb-6">Currently exploring new horizons in Indonesia at <Link className="text-white" href="https://taksu.tech/">Taksu Teknologi</Link>. Discover more about me here!</p>
+                    <p className="text-[#f2e9e4] text-lg lg:text-xl mb-6">Currently exploring new horizons in Indonesia at <Link className="text-[#9882ac]" href="https://taksu.tech/">Taksu Teknologi</Link>. Discover more about me here!</p>
                     <div>
                         <Link
                             href="/#contact"
@@ -37,8 +37,10 @@ export default function Header() {
                             Hire Me
                         </Link>
                         <Link
-                            href="/"
+                            href="/Firmin_THIERY_CV_english_version.pdf"
+                            target="_blank"
                             className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#453750] via-[#9882ac] to-[#f2e9e4] hover:bg-w mt-3"
+                            download
                         >
                             <span className="block bg-[#22223b] font-semibold hover:bg-transparent hover:text-[#4a4e69] rounded-full px-5 py-2 text-[#f2e9e4]">
                                 Download CV
