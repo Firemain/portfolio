@@ -48,7 +48,7 @@ const Email = () => {
                     </Link>
 
                     <Link href="/">
-                    <Image src="/images/linkedin-icon.svg" width={50} height={50} className='cursor-pointer'></Image>
+                    <Image src="/images/linkedin-icon.svg" width={50} height={50} className='cursor-pointer' alt="linkedin"></Image>
                     </Link>
                 </div>
             </div>
@@ -62,7 +62,7 @@ const Email = () => {
                     <input type="text" id="subject" name="subject" className='bg-[#4a4e69] text-[#ADB7BE] rounded-lg p-2' placeholder='Just say hi !'/>
 
                     <label htmlFor="message" className='text-[#ADB7BE]'>Your message</label>
-                    <textarea id="message" name="message" className='bg-[#4a4e69] text-[#ADB7BE] rounded-lg p-2 ' placeholder="Let's talk about..."></textarea>
+                    <textarea id="message" name="message" className='bg-[#4a4e69] text-[#ADB7BE] rounded-lg p-2 ' placeholder="Let&apos;s talk about..."></textarea>
 
                     <button type="submit" className='bg-[#453750] hover:bg-[#6b6d80] text-[#f2e9e4] rounded-lg p-2'>Send</button>
                 
