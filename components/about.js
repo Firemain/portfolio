@@ -78,28 +78,6 @@ const TAB_DATA = [
                 <p className="font-semibold text-[#D1D5DB]">MOOC Santé et Sécurité au Travail, INRS</p>
             </div>
         )
-    },
-    {
-        title: "Skills",
-        id: "Skills",
-        contents: (
-            <div className="text-base md:text-lg">
-                <p className="font-semibold text-[#D1D5DB]">Programming Languages:</p>
-                <p className="text-[#9CA3AF]">Python, Java, C, JavaScript, PHP</p>
-                
-                <p className="mt-2 font-semibold text-[#D1D5DB]">Web Technologies:</p>
-                <p className="text-[#9CA3AF]">HTML, CSS, Next.js, PHP, Symfony</p>
-                
-                <p className="mt-2 font-semibold text-[#D1D5DB]">Mobile Development:</p>
-                <p className="text-[#9CA3AF]">Kotlin</p>
-                
-                <p className="mt-2 font-semibold text-[#D1D5DB]">CAD:</p>
-                <p className="text-[#9CA3AF]">Onshape</p>
-                
-                <p className="mt-2 font-semibold text-[#D1D5DB]">Tools:</p>
-                <p className="text-[#9CA3AF]">Microsoft Office, Canva, Arduino</p>
-            </div>
-        )
     }
 ];
 
@@ -134,7 +112,6 @@ const About = () => {
                         <TabButton selectTab={() => handleTabs("Education")} active={tabs === "Education"}>Education</TabButton>
                         <TabButton selectTab={() => handleTabs("Experience")} active={tabs === "Experience"}>Experience</TabButton>
                         <TabButton selectTab={() => handleTabs("Certifications")} active={tabs === "Certifications"}>Certifications</TabButton>
-                        <TabButton selectTab={() => handleTabs("Skills")} active={tabs === "Skills"}>Skills</TabButton>
                     </div>
     
                     <div className='mt-8'>

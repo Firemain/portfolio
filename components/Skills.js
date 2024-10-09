@@ -83,7 +83,7 @@ const Skills = () => {
                 {skills.map((skill, index) => (
                     <motion.div 
                         key={index} 
-                        className="group flex flex-col items-center p-6 bg-gradient-to-r from-[#2d2d44] to-[#3b3b58] border border-transparent rounded-2xl hover:border-[#8a94b3] hover:shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+                        className="group flex flex-col items-center p-6 bg-gradient-to-r from-[#2d2d44] to-[#3b3b58] border border-transparent rounded-2xl hover:border-[#8a94b3] hover:shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:scale-105 w-40 h-40"
                         variants={itemVariants}
                     >
                         <div className="relative w-16 h-16 mb-3 rounded-full bg-white/10 p-2">
@@ -99,7 +99,7 @@ const Skills = () => {
                     </motion.div>               
                 ))}
                 <motion.div 
-                    className="group flex flex-col items-center p-6 bg-gradient-to-r from-[#2d2d44] to-[#3b3b58] rounded-2xl hover:border-solid hover:shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+                    className="group flex flex-col items-center p-6 bg-gradient-to-r from-[#2d2d44] to-[#3b3b58] rounded-2xl hover:border-solid hover:shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:scale-105 w-40 h-40"
                     variants={itemVariants}
                 >
                     <div className="relative w-16 h-16 mb-3 rounded-full bg-[#2d2d44] p-2 flex items-center justify-center">
@@ -108,6 +108,7 @@ const Skills = () => {
                     <p className="text-[#8a94b3] font-medium text-sm mt-3 group-hover:text-[#cdd4e0] transition duration-300">And more</p>
                 </motion.div>  
             </motion.div>
+
         </section>
     );
 };
