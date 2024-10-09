@@ -5,18 +5,23 @@ import Link from 'next/link';
 const ProjectCard = ({ title, description, imageUrl, gitUrl, previewUrl }) => {
     return (
         <div className="project-card mt-4">
-            <div className="h-52 md:h-72 rounded-t-xl relative group" style={{background: `url(${imageUrl})`, backgroundSize: "cover"}}>
-                <div className='overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#22223b] bg-opacity-60 hidden group-hover:flex group-hover:opacity-80 transition-all duration-500 '>
+            <div 
+                className="h-52 md:h-72 rounded-t-xl relative group flex items-center justify-center bg-cover bg-center" 
+                style={{ backgroundImage: `url(${imageUrl})` }}
+            >
+                <div className='overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#22223b] bg-opacity-60 hidden group-hover:flex group-hover:opacity-80 transition-all duration-500'>
                     
-                    {gitUrl && <Link href={gitUrl} className='h-14 w-14 border-2 relative rounded-full border-black hover:border-white bg-[#22223b] group/link'>
-                        <CodeBracketIcon className='h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#f2e9e4] cursor:pointer group-hover/link:text-white'></CodeBracketIcon>
-                    </Link>}
+                    {gitUrl && (
+                        <Link href={gitUrl} className='h-14 w-14 border-2 relative rounded-full border-black hover:border-white bg-[#22223b] group/link'>
+                            <CodeBracketIcon className='h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#f2e9e4] cursor-pointer group-hover/link:text-white' />
+                        </Link>
+                    )}
 
-                    {previewUrl && <Link href={previewUrl} className='h-14 w-14 border-2 relative rounded-full border-black hover:border-white bg-[#22223b] group/link'>
-                        <EyeIcon className='h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#f2e9e4] cursor:pointer group-hover/link:text-white'></EyeIcon>
-                    </Link>
-                    }    
-
+                    {previewUrl && (
+                        <Link href={previewUrl} className='h-14 w-14 border-2 relative rounded-full border-black hover:border-white bg-[#22223b] group/link'>
+                            <EyeIcon className='h-10 w-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#f2e9e4] cursor-pointer group-hover/link:text-white' />
+                        </Link>
+                    )}    
 
                 </div>
                 
@@ -28,6 +33,5 @@ const ProjectCard = ({ title, description, imageUrl, gitUrl, previewUrl }) => {
         </div>
     );
 };
-
 
 export default ProjectCard;

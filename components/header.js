@@ -16,9 +16,11 @@ export default function Header() {
       sequence={[
         'Firmin',
         1000,
-        'Centralien student',
-        1000,
         'Web developper',
+        1000,
+        'Freelance',
+        1000,
+        'Centralien student',
         1000,
         'DJ !',
         1000
