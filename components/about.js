@@ -1,127 +1,189 @@
-"use client";   
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { useState, useTransition } from 'react';
-import TabButton from './TabButton';
+import { motion } from 'framer-motion';
+import { GraduationCap, Briefcase, Scroll } from 'lucide-react';
+
 const TAB_DATA = [
     {
         title: "Education",
         id: "Education",
-        contents: (
-            <div className="text-base md:text-lg">
-                <p className="font-bold text-white">Ecole Centrale de Lille, France</p>
-                <p className="text-[#D1D5DB]">Generalist Engineering Program</p>
-                <p className="text-[#9CA3AF]">2019 - 2025</p>
-                <div className="mt-2">
-                    <p className="font-semibold text-[#D1D5DB]">Relevant Coursework:</p>
-                    <ul className="mt-1 text-[#9CA3AF]">
-                        <li>- Web 2.0 Technologies (HTML, CSS, JavaScript, PHP)</li>
-                        <li>- Mobile Programming and Augmented Reality (Kotlin)</li>
-                        <li>- Project Management (MOOC Gdp)</li>
-                        <li>- Advanced Algorithmics (C language)</li>
-                    </ul>
-                </div>
-            </div>
-        )
+        iconType: "graduation",
+        contents: [
+            {
+                institution: "Ecole Centrale de Lille, France",
+                program: "Generalist Engineering Program",
+                date: "2019 - 2025",
+                details: [
+                    "Web 2.0 Technologies (HTML, CSS, JavaScript, PHP)",
+                    "Mobile Programming and Augmented Reality (Kotlin)",
+                    "Project Management (MOOC Gdp)",
+                    "Advanced Algorithmics (C language)"
+                ]
+            }
+        ]
     },
     {
         title: "Experience",
         id: "Experience",
-        contents: (
-            <div className="text-base md:text-lg">
-                <p className="font-bold text-[#D1D5DB]">Software Development Intern - Legrand France, Limoges</p>
-                <p className="text-[#9CA3AF]">February 2023 - Present</p>
-                <div className="mt-2">
-                    <p className="font-semibold text-[#D1D5DB]">Responsibilities:</p>
-                    <ul className="mt-1 text-[#9CA3AF]">
-                        <li>- Software Architecture and Frontend Development</li>
-                        <li>- AGILE Project Management</li>
-                        <li>- Development using PHP Symfony Framework</li>
-                    </ul>
-                </div>
-
-                <p className="mt-4 font-bold text-[#D1D5DB]">AI Software Design Intern - Central Pharmacy of Lille</p>
-                <p className="text-[#9CA3AF]">October 2022 - March 2024</p>
-                <div className="mt-2">
-                    <p className="font-semibold text-[#D1D5DB]">Responsibilities:</p>
-                    <ul className="mt-1 text-[#9CA3AF]">
-                        <li>- Developed AI-based software for iatrogenic error detection</li>
-                        <li>- Python and pyQT for Frontend Development</li>
-                        <li>- Applied Granular Computing methods</li>
-                    </ul>
-                </div>
-
-                <p className="mt-4 font-bold text-[#D1D5DB]">Campus Ambassador - Lydia Solutions, Lille</p>
-                <p className="text-[#9CA3AF]">September 2023 - Present</p>
-            </div>
-        )
-    },
+        iconType: "briefcase",
+        contents: [
+            {
+                role: "Full-stack Developer and Consultant - Taksu Teknologi, Denpasar, Indonesia",
+                date: "September 2024 - February 2025",
+                details: [
+                    "Full-stack development using Laravel and Next.js",
+                    "Designing and developing web solutions with a focus on UX/UI and QA engineering"
+                ]
+            },
+            {
+                role: "Freelance Web Developer",
+                date: "September 2024 - Now",
+                details: [
+                    "Full-stack development specializing in React and Next.js",
+                    "Providing consulting services for IT projects and website development",
+                    "Handling diverse client needs including e-commerce solutions and showcase websites"
+                ]
+            },
+            {
+                role: "Software Development Intern - Legrand France, Limoges",
+                date: "February 2023",
+                details: [
+                    "Software Architecture and Frontend Development",
+                    "AGILE Project Management",
+                    "Development using PHP Symfony Framework"
+                ]
+            },
+            {
+                role: "AI Software Design Intern - Central Pharmacy of Lille",
+                date: "October 2022 - March 2024",
+                details: [
+                    "Developed AI-based software for iatrogenic error detection",
+                    "Python and pyQT for Frontend Development",
+                    "Applied Granular Computing methods"
+                ]
+            }
+        ]
+    },    
     {
         title: "Certifications",
         id: "Certifications",
-        contents: (
-            <div className="text-base md:text-lg">
-                <p className="font-semibold text-[#D1D5DB]">MOOC Project Management (GDP)</p>
-                <p className="font-semibold text-[#D1D5DB]">Udemy certifications</p>
-                    <ul className="mt-1 text-[#9CA3AF]">
-                        <li>- Next.js 14 & React - The Complete Guide</li>
-                        <li>- Python & Machine Learning for Financial Analysis</li>
-                        <li>- ELECTRON JS : Créez des apps desktop multi-plateformes</li>
-                    </ul>
-                <p className="font-semibold text-[#D1D5DB]">FreeCodeCamp certifications</p>
-                    <ul className="mt-1 text-[#9CA3AF]">
-                        <li>- Data Analysis with Python</li>
-                        <li>- Responsive web designer</li>
-                    </ul>
-                <p className="font-semibold text-[#D1D5DB]">MOOC Santé et Sécurité au Travail, INRS</p>
-            </div>
-        )
+        iconType: "certificate",
+        contents: [
+            {
+                name: "MOOC Project Management (GDP)"
+            },
+            {
+                name: "Udemy certifications",
+                details: [
+                    "Next.js 14 & React - The Complete Guide",
+                    "Python & Machine Learning for Financial Analysis",
+                    "ELECTRON JS : Créez des apps desktop multi-plateformes"
+                ]
+            }
+        ]
     }
 ];
 
-
-
-const About = () => {
-    const[tabs, setTabs] = useState("Education");
-    const [isPending, startTransition ] = useTransition();
-
-    const handleTabs = (id) => {
-        startTransition(() => {
-            setTabs(id);
-        });
+const getIcon = (type) => {
+    switch (type) {
+        case "graduation":
+            return <GraduationCap className="h-5 w-5 text-[#9882ac] mr-2" />;
+        case "briefcase":
+            return <Briefcase className="h-5 w-5 text-[#9882ac] mr-2" />;
+        case "certificate":
+            return <Scroll className="h-5 w-5 text-[#9882ac] mr-2" />;
+        default:
+            return null;
     }
+};
+
+export default function About() {
+    const [expandedTab, setExpandedTab] = useState(null);
+    const refs = useRef({});
+    const navbarHeight = 80; // Ajuste cette valeur selon la hauteur de ta navbar
+
+    const toggleTab = (id) => {
+        setExpandedTab(expandedTab === id ? null : id);
+    };
+
+    useEffect(() => {
+        if (expandedTab && refs.current[expandedTab]) {
+            // Utilisation de setTimeout pour laisser le temps à l'animation de fermeture de se terminer
+            setTimeout(() => {
+                const element = refs.current[expandedTab];
+                const offset = navbarHeight + 20; // Décalage pour tenir compte de la navbar et d'un peu d'espace
+                const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top,
+                    behavior: 'smooth'
+                });
+            }, 300); // La durée doit correspondre à l'animation de fermeture
+        }
+    }, [expandedTab]);
+
+    const contentVariants = {
+        collapsed: { opacity: 0, height: 0 },
+        expanded: { opacity: 1, height: 'auto' }
+    };
 
     return (
-        <section className='text-white mt-24 id="about'>
-            <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-6">
-                <Image src="/images/aboutme.png" alt="About" width={500} height={500} className="rounded-lg" />
-                <div className='mt-6 md:mt-0'>
-                    <h2 className="mb-4 inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300 font-bold text-4xl">About Me</h2>
-                    <p className='text-base md:text-lg'>
-                        I am a 4th-year engineering student at <Link href="https://centralelille.fr/"><span className="text-[#9882ac]">Ecole Centrale de Lille</span></Link>, and I am specializing in IT development and management. My experience includes software development, AI, and web technologies, with a strong focus on applying innovative solutions to real-world challenges. Passionate about technology, I aim to transition into <span className="text-[#9882ac]">IT consulting</span> after graduation.
+        <section className='text-white mt-16' id="about">
+            <h2 className="mb-4 inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300 font-bold text-4xl">
+                About Me
+            </h2>
+            <div className="flex flex-col md:flex-row md:justify-between gap-8 items-start py-8 px-4 xl:gap-16 sm:py-6">
+                {/* Texte à gauche */}
+                <div className="w-full md:w-1/2">
+                    <p className='text-base md:text-lg mb-6'>
+                        I am a 4th-year engineering student at <Link href="https://centralelille.fr/"><span className="text-[#9882ac]">Ecole Centrale de Lille</span></Link>, specializing in IT development and management. My experience includes software development, AI, and web technologies, with a strong focus on applying innovative solutions to real-world challenges. Passionate about technology, I aim to transition into <span className="text-[#9882ac]">IT consulting</span> after graduation.
                     </p>
-                    
-                    {/* Message humoristique visible uniquement sur mobile */}
-                    <p className='text-left text-[#adb7be] mt-4 md:hidden'>
-                        Make your order : 
-                    </p>
-    
-                    <div className='flex flex-row flex-wrap md:mt-8'>
-                        <TabButton selectTab={() => handleTabs("Education")} active={tabs === "Education"}>Education</TabButton>
-                        <TabButton selectTab={() => handleTabs("Experience")} active={tabs === "Experience"}>Experience</TabButton>
-                        <TabButton selectTab={() => handleTabs("Certifications")} active={tabs === "Certifications"}>Certifications</TabButton>
-                    </div>
-    
-                    <div className='mt-8'>
-                        {TAB_DATA.find((t) => t.id === tabs).contents}
-                    </div>
+                </div>
+                {/* Accordéons à droite */}
+                <div className="w-full md:w-1/2 space-y-4">
+                    {TAB_DATA.map((tab) => (
+                        <div key={tab.id} ref={(el) => (refs.current[tab.id] = el)} className="mb-4">
+                            <button
+                                onClick={() => toggleTab(tab.id)}
+                                className={`w-full flex items-center p-3 text-left bg-[#4a4e69] text-white rounded-lg ${expandedTab === tab.id ? 'bg-purple-600' : 'bg-[#4a4e69]'} transition duration-300`}
+                            >
+                                {getIcon(tab.iconType)}
+                                {tab.title}
+                            </button>
+                            <motion.div
+                                className="overflow-hidden"
+                                variants={contentVariants}
+                                initial="collapsed"
+                                animate={expandedTab === tab.id ? "expanded" : "collapsed"}
+                                transition={{ duration: 0.3 }}
+                            >
+                                {expandedTab === tab.id && (
+                                    <motion.div className="p-4 bg-[#3b3b58] rounded-b-lg mt-2">
+                                        {tab.contents.map((content, index) => (
+                                            <div key={index} className="mb-4">
+                                                <p className="font-bold text-white">
+                                                    {content.institution || content.role || content.name}
+                                                </p>
+                                                {content.program && <p className="text-[#D1D5DB]">{content.program}</p>}
+                                                <p className="text-[#9CA3AF]">{content.date}</p>
+                                                {content.details && (
+                                                    <ul className="mt-2 text-[#9CA3AF]">
+                                                        {content.details.map((detail, detailIndex) => (
+                                                            <li key={detailIndex}>- {detail}</li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </motion.div>
+                                )}
+                            </motion.div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
     );
-    
 };
-
-export default About;

@@ -12,7 +12,7 @@
     "@heroicons/react": "^2.1.5",
     "framer-motion": "^11.11.4",
     "lucide-react": "^0.451.0",
-    "next": "14.2.5",
+    "next": "^14.2.15",
     "portfolio": "file:",
     "react": "^18",
     "react-dom": "^18",

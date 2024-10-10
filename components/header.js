@@ -13,25 +13,27 @@ export default function Header() {
                     <h1 className="text-[#f2e9e4] mb-4 text-4xl lg:text-6xl font-extrabold">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300">Hello, I&apos;m {""} <br></br></span>
                         <TypeAnimation
-      sequence={[
-        'Firmin',
-        1000,
-        'Web developper',
-        1000,
-        'Freelance',
-        1000,
-        'Centralien student',
-        1000,
-        'DJ !',
-        1000
-      ]}
-      wrapper="span"
-      speed={50}
-      repeat={Infinity}
-    />
-                        </h1>
-                    <p className="text-[#f2e9e4] text-lg lg:text-xl mb-6">Currently exploring new horizons in Indonesia at <Link className="text-[#9882ac]" href="https://taksu.tech/">Taksu Teknologi</Link>. Discover more about me here!</p>
-                    <div>
+                            sequence={[
+                                'Firmin',
+                                1000,
+                                'Web developer',
+                                1000,
+                                'Freelancer',
+                                1000,
+                                'Centralien student',
+                                1000,
+                                'DJ !',
+                                1000
+                            ]}
+                            wrapper="span"
+                            speed={50}
+                            repeat={Infinity}
+                        />
+                    </h1>
+                    <p className="text-[#f2e9e4] text-lg lg:text-xl mb-6">
+                        Currently exploring new horizons in Indonesia at <Link className="text-[#9882ac]" href="https://taksu.tech/">Taksu Teknologi</Link>. Discover more about me here!
+                    </p>
+                    <div className="mb-6">
                         <Link
                             href="/#contact"
                             className="px-6 font-semibold inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#453750] via-[#9882ac] to-[#f2e9e4] hover:bg-[#f2e9e4] text-[#22223b]"
@@ -47,6 +49,27 @@ export default function Header() {
                             <span className="block bg-[#22223b] font-semibold hover:bg-transparent hover:text-[#4a4e69] rounded-full px-5 py-2 text-[#f2e9e4]">
                                 Download CV
                             </span>
+                        </Link>
+                    </div>
+                    {/* Section des logos des plateformes freelance */}
+                    <div className="flex justify-center sm:justify-start items-center gap-4 mt-6">
+                        <Link href="https://www.malt.fr/profile/firminthiery" target="_blank" className="hover:opacity-80 transition duration-300 flex items-center">
+                            <Image
+                                src="/malt_logo_pink.svg"
+                                alt="Malt Profile"
+                                width={100}
+                                height={100}
+                                className="w-30 h-30 object-contain"
+                            />
+                        </Link>
+                        <Link href="https://taftavie.fr/freelancer/firmin/" target="_blank" className="hover:opacity-80 transition duration-300 flex items-center">
+                            <Image
+                                src="/taftavie.svg"
+                                alt="TafTavie Profile"
+                                width={200}
+                                height={200}
+                                className="w-30 h-30 object-contain"
+                            />
                         </Link>
                     </div>
 

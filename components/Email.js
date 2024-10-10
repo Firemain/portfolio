@@ -105,7 +105,7 @@ const Email = () => {
             {/* Notification */}
              {/* Notification */}
              {notification.visible && (
-                <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 flex items-center border border-green-500 rounded-md bg-white shadow-md p-2">
+                <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 flex items-center border border-green-700 rounded-md bg-[#17172a] shadow-md p-2">
                     {notification.success ? (
                         <>
                             <MailCheck className="h-4 w-4 text-green-500 mr-2" />
