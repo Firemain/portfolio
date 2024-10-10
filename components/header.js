@@ -55,7 +55,7 @@ export default function Header() {
                     <div className="flex justify-center sm:justify-start items-center gap-4 mt-6">
                         <Link href="https://www.malt.fr/profile/firminthiery" target="_blank" className="hover:opacity-80 transition duration-300 flex items-center">
                             <Image
-                                src="/malt_logo_pink.svg"
+                                src="/Malt_logo_pink.svg"
                                 alt="Malt Profile"
                                 width={100}
                                 height={100}
